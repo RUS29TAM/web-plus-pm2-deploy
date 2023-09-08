@@ -11,6 +11,10 @@ import {
 import { validateUserBody, validateAuthentication } from '../middlewares/validatons';
 
 const router = Router();
+router.get('/crash-test', () => {
+    throw new Error('Сервер упал');
+});
+
 router.post('/signup', validateUserBody, createUser);
 router.post('/signin', validateAuthentication, login);
 
